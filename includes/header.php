@@ -2,6 +2,11 @@
 require('includes/init.php');
 $conn = require('includes/database.php');
 
+if(isset($_SESSION['username'])){
+
+    $userTest = User::getByUsername($conn, $_SESSION['username']);
+}
+
 ?>
 
 

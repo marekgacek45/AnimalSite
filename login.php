@@ -13,10 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $user = User::authenticate($conn, $username, $password);
 
-    if ($user) {
+
+    if (User::authenticate($conn, $username, $password)) {
+
         Authentication::login();
+
         redirect('index.php');
 
     } else {
@@ -35,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </p>
     <?php endif ?>
 
-   
+
 
     <form action="login.php" method="POST">
         <label for="username">username</label>
