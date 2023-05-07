@@ -17,8 +17,13 @@ class User{
         if ($user = $stmt->fetch()) {
             return $password == $user->password;
         }
+
+       
     }
     
+    public function setUsername($username){
+        $this->username = $username;
+    }
 
     public static function getAll($conn){
         $sql = "SELECT * from users";

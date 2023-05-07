@@ -1,11 +1,17 @@
 <?php require("includes/header.php") ?>
-<?php $users = User::getAll($conn); ?>
+<?php 
+$user = new User();
+?>
 <main>
-  <?php foreach($users as $user): ?>
-    <ul>
-        <li><?=htmlspecialchars($user['username']) ?></li>
-    </ul>
-    <?php endforeach ?>
+
+
+  <h1>Strona Główna</h1>
+
+  <h2>Witaj <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'przyjacielu'; ?></h2>
+
+  <a href="login.php"><button>login</button></a>
+  <a href="logout.php"><button>logout</button></a>
+ 
 
 
 
