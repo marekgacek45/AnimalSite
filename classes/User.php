@@ -25,6 +25,7 @@ class User
 
     }
 
+   
     public static function getByUsername($conn, $username)
     {
         $sql = "SELECT * from user WHERE  username=:username";
@@ -34,9 +35,11 @@ class User
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
         $stmt->execute();
 
-        $user = $stmt->fetch();
-        return $user;
+        if($stmt->execute()){
+           return $stmt->fetch();
+      }
     }
+   
 }
 
 ?>

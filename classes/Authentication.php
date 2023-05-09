@@ -8,6 +8,8 @@ class Authentication
 
         $_SESSION['loggedIn'] = true;
         $_SESSION['username'] = $_POST['username'];
+        
+        
     }
 
     public static function logout()
@@ -23,7 +25,21 @@ class Authentication
         }
         session_destroy();
     }
+
+    public static function checkAdmin(){
+        if(isset($_SESSION['admin']) && $_SESSION['admin'] === 'yes'){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public static function requireAdmin(){
+        if(!static::checkAdmin()){
+            die('Nie posiadasz uprawnień');
+        }
+    }
 }
+
 
 
 

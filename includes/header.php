@@ -1,6 +1,6 @@
 <?php 
-require('includes/init.php');
-$conn = require('includes/database.php');
+require(dirname(__DIR__) . '/includes/init.php');
+$conn = require(dirname(__DIR__) .'/includes/database.php');
 
 if(isset($_SESSION['username'])){
 
@@ -20,3 +20,10 @@ if(isset($_SESSION['username'])){
 </head>
 <body>
     
+<nav>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</nav>
