@@ -62,7 +62,37 @@ class Animal
             }
         }
     }
+public function update($conn){
+    if ($this->validate()) {
+        $sql = "UPDATE animal SET name=:name, type=:type,age=:age WHERE :id=id";
 
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(":id", $this->id, PDO::PARAM_INT);
+        $stmt->bindValue(":name", $this->name, PDO::PARAM_STR);
+        $stmt->bindValue(":type", $this->type, PDO::PARAM_STR);
+        $stmt->bindValue(":age", $this->age, PDO::PARAM_INT);
+
+       return $stmt->execute();
+    }else{
+        return false;
+    }
+}
+
+public function delete($conn){
+    $sql = "DELETE FROM animal WHERE id=:id";
+
+    $stmt = $conn->prepare($sql);
+
+    $stmt->bindValue(":id", $this->id, PDO::PARAM_INT);
+
+    return $stmt->execute();
+
+
+
+    
+}
 }
 
 
