@@ -18,7 +18,6 @@ $animals = Animal::getAll($conn);
 
 
 ?>
-<?php var_dump(Authentication::checkAdmin());?>
 <main>
   <h1>Strona Główna</h1>
 

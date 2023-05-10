@@ -2,10 +2,10 @@
 require(dirname(__DIR__) . '/includes/init.php');
 $conn = require(dirname(__DIR__) .'/includes/database.php');
 
-if(isset($_SESSION['username'])){
+// if(isset($_SESSION['username'])){
 
-    $userTest = User::getByUsername($conn, $_SESSION['username']);
-}
+//     $userTest = User::getByUsername($conn, $_SESSION['username']);
+// }
 
 ?>
 
