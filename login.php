@@ -30,13 +30,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <main>
 
+    <h2>masz konto? zaloguj się!</h2>
+
     <?php
     if (isset($message)): ?>
         <p style="color:red">
             <?= $message ?>
         </p>
     <?php endif ?>
-
 
 
     <form action="login.php" method="POST">
@@ -47,7 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <button type="submit">Login</button>
     </form>
 
+<h2>nie masz konta?zarejestruj się</h2>
 
+<a href="register.php"><button>Zarejestruj się</button></a>
 
 </main>
 
