@@ -9,6 +9,7 @@ $animal = Animal::getByID($conn,$id);
 
 <div>
     <p><?php echo htmlspecialchars($animal->name) ?></p>
+   <img src="uploads/<?= htmlspecialchars($animal->image)  ?>" alt="">
 </div>
 
 

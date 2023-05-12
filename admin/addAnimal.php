@@ -28,5 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <input type="text" name="type" id="type">
     <label for="age">Wiek:</label>
     <input type="number" name="age" id="age">
+    <label for="photo">Zdjęcie:</label>
+    <input type="file" name="photo" id="photo">
     <button type="submit">dodaj</button>
 </form>

@@ -7,6 +7,7 @@ class Animal
     public $type;
     public $name;
     public $age;
+    public $image;
     public $errors = [];
 
     public static function getAll($conn)
@@ -88,10 +89,14 @@ public function delete($conn){
     $stmt->bindValue(":id", $this->id, PDO::PARAM_INT);
 
     return $stmt->execute();
+}
 
-
-
-    
+public function setImageFile($conn,$filename){
+    $sql = "UPDATE animal SET image =:image WHERE id=:id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindValue(":id",$this->id,PDO::PARAM_INT);
+    $stmt->bindValue(":image",$filename,PDO::PARAM_STR);
+    $stmt->execute();
 }
 }
 

@@ -40,6 +40,7 @@ $animals = Animal::getAll($conn);
   <?php foreach ($animals as $animal): ?>
 
     <div>
+      <img src="uploads/<?=$animal->image ?>" alt="">
       <p>
         <?= $animal->name ?>
       </p>

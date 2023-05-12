@@ -39,5 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <input type="text" name="type" id="type" value="<?= htmlspecialchars($animal->type)?>">
     <label for="age">Wiek:</label>
     <input type="number" name="age" id="age" value="<?= htmlspecialchars($animal->age)?>">
+    <label for="photo">Zdjęcie:</label>
+    <input type="file" name="photo" id="photo">
     <button type="submit">edytuj</button>
 </form>
