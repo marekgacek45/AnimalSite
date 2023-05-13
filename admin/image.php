@@ -1,20 +1,5 @@
-<?php require('../includes/header.php'); ?>
-<?php Authentication::requireAdmin(); ?>
-
 <?php
 
-
-if (isset($_GET["id"])) {
-    $animal = Animal::getByID($conn, $_GET['id']);
-
-    if (!$animal) {
-        die('animal not found');
-    }
-} else {
-    die('nie ma takiego zwierza');
-}
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {
         switch ($_FILES['animalImg']['error']) {
             case UPLOAD_ERR_OK:
@@ -31,10 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $base = preg_replace('/[^a-zA-Z0-9_-]/', '_', $base);
         $filename = $base . "." . $pathinfo['extension'];
 
-        $imgTypes = ['image/jpg', 'image/png', 'image/gif', 'image/webp'];
+        $imgTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif', 'image/webp'];
         $dest = "../uploads/" . $filename;
 
-        if ($_FILES['animalImg']['size'] > 1000000) {
+        if ($_FILES['animalImg']['size'] > 5000000) {
             throw new Exception('zdjęcie jest za duże');
         }
 
@@ -60,20 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } catch (Exception $e) {
         $error = $e->getMessage();
     }
-}
+
 
 ?>
-
-
-<h2>Zmień zdjęcie</h2>
-<?php if (isset($error)): ?>
-    <p>
-        <?= $error ?>
-    </p>
-<?php endif ?>
-
-<form method="post" enctype="multipart/form-data">
-
-    <label for="animalImg">Zdjęcie:</label>
-    <input type="file" name="animalImg" id="animalImg">
-    <button type="submit">edytuj</button>

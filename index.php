@@ -2,45 +2,19 @@
 
 
 <?php
-
-
-
-$user = null;
-if (isset($_SESSION['username'])) {
-  $user = User::getByUsername($conn, $_SESSION['username']);
-  
-  $_SESSION['admin'] = $user->admin;
-
-  
-
-}
 $animals = Animal::getAll($conn);
-
-
 ?>
-<main>
-  <h1>Strona Główna</h1>
+<main class="container">
+  <h1>Przygarnij Zwierzaka</h1>
 
-  <?php if ($user !== null): ?>
-    <h2>Witaj, <?php echo $user->username; ?></h2>
-
-    <?php if (isset($user->admin) && $user->admin == 'yes'): ?>
-      <a href="admin/index.php"><button>Panel admina</button></a>
-    <?php endif ?>
-
-    <a href="logout.php"><button>Wyloguj</button></a>
-  <?php else: ?>
-    <h2>Witaj, przyjacielu</h2>
-
-    <a href="login.php"><button>Zaloguj</button></a>
-  <?php endif ?>
+  
 
 
 
   <?php foreach ($animals as $animal): ?>
 
-    <div>
-      <img src="uploads/<?=$animal->image ?>" alt="">
+    <div class="animal__card">
+      <img src="uploads/<?=$animal->image ?>" alt="" style="width:100px">
       <p>
         <?= $animal->name ?>
       </p>
