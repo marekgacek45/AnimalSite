@@ -1,7 +1,7 @@
-<?php
-function uploadImage($image,$obj,$conn){
+<!-- <?php
+function uploadImage($file,$obj,$conn = $conn){
     try {
-        switch ($_FILES[$image]['error']) {
+        switch ($_FILES[$file]['error']) {
             case UPLOAD_ERR_OK:
                 break;
             case UPLOAD_ERR_NO_FILE:
@@ -11,7 +11,7 @@ function uploadImage($image,$obj,$conn){
                 throw new Exception('an error occurred');
         }
 
-        $pathinfo = pathinfo($_FILES[$image]['name']);
+        $pathinfo = pathinfo($_FILES[$file]['name']);
         $base = $pathinfo['filename'];
         $base = preg_replace('/[^a-zA-Z0-9_-]/', '_', $base);
         $filename = $base . "." . $pathinfo['extension'];
@@ -19,11 +19,11 @@ function uploadImage($image,$obj,$conn){
         $imgTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif', 'image/webp'];
         $dest = "../uploads/" . $filename;
 
-        if ($_FILES[$image]['size'] > 7000000) {
+        if ($_FILES[$file]['size'] > 7000000) {
             throw new Exception('zdjęcie jest za duże');
         }
 
-        if (!in_array($_FILES[$image]['type'], $imgTypes)) {
+        if (!in_array($_FILES[$file]['type'], $imgTypes)) {
             throw new Exception('niedozwolony rodzaj pliku');
         }
 
@@ -34,7 +34,7 @@ function uploadImage($image,$obj,$conn){
             $i++;
         }
 
-        if (move_uploaded_file($_FILES[$image]['tmp_name'], $dest)) {
+        if (move_uploaded_file($_FILES[$file]['tmp_name'], $dest)) {
             if ($obj->setImageFile($conn, $filename))
                 ; {
                 redirect("/AnimalSite/admin/index.php");
@@ -93,4 +93,4 @@ function uploadImage($image,$obj,$conn){
 // } catch (Exception $e) {
 //     $error = $e->getMessage();
 // }
-?>
+?> -->

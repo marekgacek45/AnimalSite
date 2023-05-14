@@ -1,6 +1,6 @@
 <?php require('../includes/header.php'); ?>
 <?php Authentication::requireAdmin(); ?>
-<?php require('../includes/upload_image.php'); ?>
+
 
 <?php
 
@@ -20,13 +20,14 @@ if (isset($_GET["id"])) {
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $animal->name = $_POST['name'];
     $animal->type = $_POST['type'];
+    $animal->from_where = $_POST['from_where'];
+    $animal->gender = $_POST['gender'];
     $animal->age = $_POST['age'];
+    $animal->description = $_POST['description'];
 
-    // require('../includes/upload_image.php');
 
-    $animalImg = 'animalImg';
 
-    $imageError = uploadImage($animalImg, $animal, $conn);
+    $imageError = uploadImage("animalImg", $animal, $conn);
 
 
     if (empty($imageError)) {
@@ -41,17 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <h2>Edytuj zwierzaka</h2>
 
-<!-- <form method="post">
-    <label for="name">Nazwa:</label>
-    <input type="text" name="name" id="name" value="<?= htmlspecialchars($animal->name) ?>">
-    <label for="type">Typ:</label>
-    <input type="text" name="type" id="type" value="<?= htmlspecialchars($animal->type) ?>">
-    <label for="age">Wiek:</label>
-    <input type="number" name="age" id="age" value="<?= htmlspecialchars($animal->age) ?>">
-    <label for="photo">Zdjęcie:</label>
-    <input type="file" name="photo" id="photo">
-    <button type="submit">edytuj</button>
-</form> -->
+
 
 <?php if (!empty($imageError)): ?>
     <p>
@@ -59,15 +50,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </p>
 <?php endif ?>
 
+<?php include('includes/animal_form.php') ?>
 
-<form method="post" enctype="multipart/form-data">
-    <label for="name">Nazwa:</label>
-    <input type="text" name="name" id="name" value="<?= htmlspecialchars($animal->name) ?>">
-    <label for="type">Typ:</label>
-    <input type="text" name="type" id="type" value="<?= htmlspecialchars($animal->type) ?>">
-    <label for="age">Wiek:</label>
-    <input type="number" name="age" id="age" value="<?= htmlspecialchars($animal->age) ?>">
-    <label for="animalImg">Zdjęcie:</label>
-    <input type="file" name="animalImg" id="animalImg">
-    <button type="submit">edytuj</button>
-</form>
+<button type="submit" form="animal_form">edytuj</button>

@@ -4,10 +4,13 @@ class Animal
 {
 
     public $id;
-    public $type;
     public $name;
+    public $type;
+    public $from_where;
+    public $gender;
     public $age;
     public $image;
+    public $description;
     public $errors = [];
 
     public static function getAll($conn)
@@ -47,13 +50,15 @@ class Animal
     public function create($conn)
     {
         if ($this->validate()) {
-            $sql = "INSERT INTO animal(name,type,age) VALUES(:name,:type,:age)";
-
+            $sql = "INSERT INTO animal(name, type, from_where, gender, age, description) VALUES(:name, :type, :from_where, :gender, :age, :description)";
 
             $stmt = $conn->prepare($sql);
             $stmt->bindValue(":name", $this->name, PDO::PARAM_STR);
             $stmt->bindValue(":type", $this->type, PDO::PARAM_STR);
+            $stmt->bindValue(":from_where", $this->from_where, PDO::PARAM_STR);
+            $stmt->bindValue(":gender", $this->gender, PDO::PARAM_STR);
             $stmt->bindValue(":age", $this->age, PDO::PARAM_INT);
+            $stmt->bindValue(":description", $this->description, PDO::PARAM_STR);
 
             if ($stmt->execute()) {
                 $this->id = $conn->lastInsertID();
@@ -63,41 +68,47 @@ class Animal
             }
         }
     }
-public function update($conn){
-    if ($this->validate()) {
-        $sql = "UPDATE animal SET name=:name, type=:type,age=:age WHERE :id=id";
+   
+    public function update($conn)
+    {
+        if ($this->validate()) {
+            $sql = "UPDATE animal SET name=:name, type=:type, from_where=:from_where, gender=:gender, age=:age, description=:description WHERE id=:id";
 
+            $stmt = $conn->prepare($sql);
+    
+            $stmt->bindValue(":id", $this->id, PDO::PARAM_INT);
+            $stmt->bindValue(":name", $this->name, PDO::PARAM_STR);
+            $stmt->bindValue(":type", $this->type, PDO::PARAM_STR);
+            $stmt->bindValue(":from_where", $this->from_where, PDO::PARAM_STR);
+            $stmt->bindValue(":gender", $this->gender, PDO::PARAM_STR);
+            $stmt->bindValue(":age", $this->age, PDO::PARAM_INT);
+            $stmt->bindValue(":description", $this->description, PDO::PARAM_STR);
+
+            return $stmt->execute();
+        } else {
+            return false;
+        }
+    }
+
+    public function delete($conn)
+    {
+        $sql = "DELETE FROM animal WHERE id=:id";
 
         $stmt = $conn->prepare($sql);
 
         $stmt->bindValue(":id", $this->id, PDO::PARAM_INT);
-        $stmt->bindValue(":name", $this->name, PDO::PARAM_STR);
-        $stmt->bindValue(":type", $this->type, PDO::PARAM_STR);
-        $stmt->bindValue(":age", $this->age, PDO::PARAM_INT);
 
-       return $stmt->execute();
-    }else{
-        return false;
+        return $stmt->execute();
     }
-}
 
-public function delete($conn){
-    $sql = "DELETE FROM animal WHERE id=:id";
-
-    $stmt = $conn->prepare($sql);
-
-    $stmt->bindValue(":id", $this->id, PDO::PARAM_INT);
-
-    return $stmt->execute();
-}
-
-public function setImageFile($conn,$filename){
-    $sql = "UPDATE animal SET image =:image WHERE id=:id";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindValue(":id",$this->id,PDO::PARAM_INT);
-    $stmt->bindValue(":image",$filename,PDO::PARAM_STR);
-    $stmt->execute();
-}
+    public function setImageFile($conn, $filename)
+    {
+        $sql = "UPDATE animal SET image =:image WHERE id=:id";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(":id", $this->id, PDO::PARAM_INT);
+        $stmt->bindValue(":image", $filename, PDO::PARAM_STR);
+        $stmt->execute();
+    }
 }
 
 

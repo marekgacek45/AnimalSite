@@ -25,12 +25,12 @@
                 <?php if ($user !== null): ?>
                     <p>Cześć <?= $user->username ?></p>
                             <?php if (isset($user->admin) && $user->admin == 'yes'): ?>
-                                <a href="admin/index.php"><button>Panel admina</button></a>
+                                <a href="admin/index.php"><button class="btn btn-primary">Panel admina</button></a>
                             <?php endif ?>
                         
-                        <a href="logout.php"><button>Wyloguj</button></a>
+                        <a href="logout.php"><button class="btn btn-primary">Wyloguj</button></a>
                     <?php else: ?>
-                        <a href="login.php"><button>Zaloguj</button></a>
+                        <a href="login.php"><button class="btn btn-primary">Zaloguj</button></a>
                    
                 <?php endif ?>
             </div>
