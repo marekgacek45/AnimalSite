@@ -23,7 +23,9 @@
 
             <div>
                 <?php if ($user !== null): ?>
-                    <p>Cześć <?= $user->username ?></p>
+                   
+                    <a href="user.php"><img src="uploads/<?=$user->image?>" style="width:30px"></a>
+
                             <?php if (isset($user->admin) && $user->admin == 'yes'): ?>
                                 <a href="admin/index.php"><button class="btn btn-primary">Panel admina</button></a>
                             <?php endif ?>

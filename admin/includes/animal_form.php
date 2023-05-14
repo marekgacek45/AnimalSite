@@ -1,3 +1,13 @@
+<?php
+$showFileInput = true; // Ustawienie domyślnie na false
+
+// Sprawdź, czy jesteś na stronie, na której chcesz wyświetlić pole input file
+if ($_SERVER['REQUEST_URI'] === '/AnimalSite/admin/addAnimal.php') {
+    $showFileInput = false;
+}
+
+?>
+
 <form method="post" enctype="multipart/form-data" id="animal_form">
 
     <label for="name">Imię:</label>
@@ -15,10 +25,12 @@
     <label for="age">Wiek:</label>
     <input type="number" name="age" id="age" value="<?= htmlspecialchars($animal->age) ?>">
 
-    <label for="animalImg">Zdjęcie:</label>
-    <input type="file" name="animalImg" id="animalImg">
+    <?php if ($showFileInput): ?>
+        <label for="animalImg">Zdjęcie:</label>
+        <input type="file" name="animalImg" id="animalImg">
+    <?php endif; ?>
 
     <label for="description">description</label>
-    <textarea name="description" id="description" cols="30" rows="10"
-        value="<?= htmlspecialchars($animal->description) ?>"></textarea>
+    <textarea name="description" id="description" cols="30"
+        rows="10"><?= htmlspecialchars($animal->description) ?></textarea>
 </form>

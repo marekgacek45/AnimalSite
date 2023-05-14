@@ -9,12 +9,15 @@ function redirect($location)
 function uploadImage($file, $obj, $conn)
 {
     try {
+        if (empty($_FILES[$file]['tmp_name'])) {
+            return ''; //
+        }
         switch ($_FILES[$file]['error']) {
             case UPLOAD_ERR_OK:
                 break;
             case UPLOAD_ERR_NO_FILE:
                 throw new Exception('no file uploaded');
-            // break;
+                break;
             default:
                 throw new Exception('an error occurred');
         }
@@ -43,8 +46,17 @@ function uploadImage($file, $obj, $conn)
         }
 
         if (move_uploaded_file($_FILES[$file]['tmp_name'], $dest)) {
+
+            $previous_image = $obj->image;
+
+
             if ($obj->setImageFile($conn, $filename))
                 ; {
+
+                if ($previous_image) {
+                    unlink("../uploads/$previous_image");
+                }
+
                 redirect("/AnimalSite/admin/index.php");
             }
         } else {

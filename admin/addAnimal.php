@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $animal->age = $_POST['age'];
     $animal->description = $_POST['description'];
 
-    $imageError = uploadImage("animalImg", $animal, $conn);
+    
 
     if (empty($imageError)) {
         if ($animal->create($conn)) {
@@ -27,9 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <h2>Dodaj nowego zwierzaka</h2>
 
-<?php if (!empty($imageError)): ?>
+<?php if (!empty($animal->errors)): ?>
     <p>
-        <?= $imageError ?>
+        <?= $animal->errors ?>
     </p>
 <?php endif ?>
 

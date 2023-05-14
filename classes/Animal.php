@@ -3,6 +3,7 @@
 class Animal
 {
 
+    protected static $db_table = 'animal';
     public $id;
     public $name;
     public $type;
@@ -16,14 +17,14 @@ class Animal
     public static function getAll($conn)
     {
 
-        $sql = "SELECT * FROM animal ORDER BY id";
+        $sql = "SELECT * FROM ". static::$db_table ." ORDER BY id";
 
         $result = $conn->query($sql);
         return $result->fetchAll(PDO::FETCH_CLASS, 'Animal');
     }
     public static function getByID($conn, $id, $columns = "*")
     {
-        $sql = "SELECT $columns FROM animal WHERE id=:id";
+        $sql = "SELECT $columns FROM ". static::$db_table ." WHERE id=:id";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'Animal');
@@ -50,7 +51,7 @@ class Animal
     public function create($conn)
     {
         if ($this->validate()) {
-            $sql = "INSERT INTO animal(name, type, from_where, gender, age, description) VALUES(:name, :type, :from_where, :gender, :age, :description)";
+            $sql = "INSERT INTO ". static::$db_table ."(name, type, from_where, gender, age, description) VALUES(:name, :type, :from_where, :gender, :age, :description)";
 
             $stmt = $conn->prepare($sql);
             $stmt->bindValue(":name", $this->name, PDO::PARAM_STR);
@@ -72,7 +73,7 @@ class Animal
     public function update($conn)
     {
         if ($this->validate()) {
-            $sql = "UPDATE animal SET name=:name, type=:type, from_where=:from_where, gender=:gender, age=:age, description=:description WHERE id=:id";
+            $sql = "UPDATE ". static::$db_table ." SET name=:name, type=:type, from_where=:from_where, gender=:gender, age=:age, description=:description WHERE id=:id";
 
             $stmt = $conn->prepare($sql);
     
@@ -92,7 +93,7 @@ class Animal
 
     public function delete($conn)
     {
-        $sql = "DELETE FROM animal WHERE id=:id";
+        $sql = "DELETE FROM ". static::$db_table ." WHERE id=:id";
 
         $stmt = $conn->prepare($sql);
 
@@ -103,13 +104,26 @@ class Animal
 
     public function setImageFile($conn, $filename)
     {
-        $sql = "UPDATE animal SET image =:image WHERE id=:id";
+        $sql = "UPDATE ". static::$db_table ." SET image =:image WHERE id=:id";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(":id", $this->id, PDO::PARAM_INT);
         $stmt->bindValue(":image", $filename, PDO::PARAM_STR);
         $stmt->execute();
     }
+
+    public static function get_page($conn, $limit, $offset) {
+        $sql = "SELECT * FROM " . static::$db_table . " LIMIT :limit OFFSET :offset";
+    
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(":limit", $limit, PDO::PARAM_INT);
+        $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
+    
+        $stmt->execute();
+    
+        return $stmt->fetchAll(PDO::FETCH_CLASS, 'Animal');
+    }
+public static function get_total($conn){
+    return $conn->query("SELECT COUNT(*) FROM ". static::$db_table . "")->fetchColumn();
 }
-
-
+}
 ?>
