@@ -2,6 +2,7 @@
 
 class User
 {
+    public static $db_table = "user";
     public $id;
     public $username;
     public $email;
@@ -10,7 +11,7 @@ class User
 
     public static function authenticate($conn, $username, $password)
     {
-        $sql = 'SELECT * FROM user WHERE username = :username';
+     $sql = 'SELECT * FROM ' . static::$db_table . ' WHERE username = :username';
 
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(":username", $username, PDO::PARAM_STR);
@@ -29,7 +30,7 @@ class User
 
     public static function getByUsername($conn, $username)
     {
-        $sql = "SELECT * from user WHERE  username=:username";
+        $sql = "SELECT * from ". static::$db_table . " WHERE  username=:username";
 
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(":username", $username, PDO::PARAM_STR);
@@ -41,9 +42,21 @@ class User
         }
     }
 
+    public static function getByID($conn, $id, $columns = "*")
+    {
+        $sql = "SELECT $columns FROM ". static::$db_table ." WHERE id=:id";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+
+        if ($stmt->execute()) {
+            return $stmt->fetch();
+        }
+    }
+
     public static function checkUsername($conn, $username)
     {
-        $sql = "SELECT username FROM user WHERE username = :username";
+        $sql = "SELECT username FROM ". static::$db_table . " WHERE username = :username";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(":username", $username, PDO::PARAM_STR);
         $stmt->execute();
@@ -52,7 +65,7 @@ class User
     }
     public static function checkUserEmail($conn, $email)
     {
-        $sql = "SELECT email FROM user WHERE email = :email";
+        $sql = "SELECT email FROM ". static::$db_table . " WHERE email = :email";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(":email", $email, PDO::PARAM_STR);
         $stmt->execute();
@@ -62,7 +75,7 @@ class User
 
     public function create($conn)
     {
-            $sql = "INSERT INTO user(username,email,password) VALUES(:username,:email,:password)";
+            $sql = "INSERT INTO ". static::$db_table . "(username,email,password) VALUES(:username,:email,:password)";
 
 
             $stmt = $conn->prepare($sql);
@@ -76,6 +89,22 @@ class User
             } else {
                 return false;
             }
+        }
+
+        public static function get_page($conn, $limit, $offset) {
+            $sql = "SELECT * FROM " . static::$db_table . " LIMIT :limit OFFSET :offset";
+        
+            $stmt = $conn->prepare($sql);
+            $stmt->bindValue(":limit", $limit, PDO::PARAM_INT);
+            $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
+        
+            $stmt->execute();
+        
+            return $stmt->fetchAll(PDO::FETCH_CLASS, 'Animal');
+        }
+
+        public static function get_total($conn){
+            return $conn->query("SELECT COUNT(*) FROM ". static::$db_table . "")->fetchColumn();
         }
     }
 

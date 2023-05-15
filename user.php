@@ -2,8 +2,16 @@
 <?php $conn = require('includes/database.php')?>
 <?php 
 
-var_dump($user)
+$id = $_GET['id'];
+$user = User::getByID($conn,$id);
 
 ?>
 
-<h2>użytkownik</h2>
+<div>
+    <p><?php echo htmlspecialchars($user->username) ?></p>
+   <img src="uploads/<?= htmlspecialchars($user->image)  ?>" alt="">
+</div>
+
+
+
+<?php require('includes/footer.php')?>
