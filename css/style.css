@@ -5,24 +5,63 @@
 }
 
 body {
-  background-color: #fff6bd;
+  background-color: #FFE15D;
   font-family: "Nunito Sans", sans-serif;
+}
+
+.desktop {
+  display: none !important;
+}
+@media (min-width: 992px) {
+  .desktop {
+    display: flex !important;
+  }
+}
+
+.mobile {
+  display: flex !important;
+}
+@media (min-width: 992px) {
+  .mobile {
+    display: none !important;
+  }
+}
+
+.navbar {
+  background-color: #F49D1A !important;
+}
+.navbar__container {
+  margin: 0 2em;
+}
+
+.custom-btn {
+  background-color: #B01E68;
+  font-weight: bold;
 }
 
 .heading {
   font-family: "Josefin Sans", sans-serif;
   text-transform: uppercase;
-  color: #86c8bc;
+  color: #DC3535;
 }
 
 .header {
   padding: 1em;
-  background-color: #fff6bd;
+  background-color: #FFE15D;
+}
+.header__text {
+  text-align: center;
 }
 .header__photos-box {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   margin: 1em;
+}
+@media (min-width: 576px) {
+  .header__photos-box {
+    width: 120px;
+    height: 120px;
+  }
 }
 .header__photos-box img {
   width: 100%;
@@ -30,6 +69,13 @@ body {
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 2px 2px 15px black;
+}
+.header__btns {
+  display: flex;
+  justify-content: center;
+}
+.header__btns button {
+  margin: 0 1em;
 }
 
 .heroImg {
