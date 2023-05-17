@@ -12,10 +12,10 @@ $base = strtok($_SERVER['REQUEST_URI'], "?")
 <main>
   <?php
 
- $image_directory = "assets/header_images";
- $images = glob($image_directory. '/*.jpg');
- $i = 1;
-    ?>
+  $image_directory = "assets/header_images";
+  $images = glob($image_directory . '/*.jpg');
+  $i = 1;
+  ?>
 
   <header class="container header">
     <div class="row d-flex justify-content-center align-items-center">
@@ -46,65 +46,113 @@ $base = strtok($_SERVER['REQUEST_URI'], "?")
 
 
 
-<section>
-  <div class="d-flex justify-content-center align-items-center heroImg">
-    <div class="heroImg-shadow"></div>
-    <div class="heroImg__content d-flex flex-column justify-content-center align-items-center container">
-      <h2 class="heading">Adoptuj Seniora</h2>
-      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-<button class="btn btn-primary">sprawdź dobre pieski</button>
+  <section>
+    <div class="d-flex justify-content-space-evenly align-items-center heroImg">
+      <div class="heroImg-shadow"></div>
+      <div class="heroImg__content  container">
+        <h2 class="heading">Adoptuj Seniora</h2>
+        <p class="heroImg__content-text">It is a long established fact that a reader will be distracted by the readable
+          content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+          normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable
+          English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model
+          text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have
+          evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+        <button class="btn btn-primary">sprawdź dobre pieski</button>
+      </div>
+
     </div>
+  </section>
+
+
+  <section>
+
+    <div class="container d-flex flex-column justify-content-center align-items-center">
+      <div class="animal-container">
+        <div class="animal__box">
+          <div class="animal__box-text">
+            <p>mamy 123</p>
+            <h2>pieski</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, impedit!</p>
+            <button class="btn btn-primary">sprawdź</button>
+          </div>
+          <div class=" animal__box-img">
+            <img src="./assets/alvan-nee-brFsZ7qszSY-unsplash-removebg-preview.png" alt="">
+          </div>
+        </div>
+        <div class="animal__box">
+          <div class="animal__box-text">
+            <p>mamy 123</p>
+            <h2>koty</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, impedit!</p>
+            <button class="btn btn-primary">sprawdź</button>
+          </div>
+          <div class=" animal__box-img">
+            <img src="./assets/jae-park-7GX5aICb5i4-unsplash-removebg-preview.png" alt="">
+          </div>
+        </div>
+        </div>
+
+        <div class=" animal__box ">
+          <div class="animal__box-text">
+            <p>mamy 123</p>
+            <h2>inne zwierzątka</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, impedit!</p>
+            <button class="btn btn-primary">sprawdź</button>
+          </div>
+          <div class=" animal__box-img">
+            <img src="./assets/birger-strahl-fOV7nWWIwRk-unsplash-removebg-preview.png" alt="">
+          </div>
+        </div>
+      
+    </div>
+
+    <section>
+    <div class="d-flex justify-content-space-evenly align-items-center heroImg">
+      <div class="heroImg-shadow"></div>
+      <div class="heroImg__content  container">
+        <h2 class="heading">Adoptuj Seniora</h2>
+        <p class="heroImg__content-text">It is a long established fact that a reader will be distracted by the readable
+          content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+          normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable
+          English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model
+          text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have
+          evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+        <button class="btn btn-primary">sprawdź dobre pieski</button>
+      </div>
+
+    </div>
+  </section>
+
+<section>
+  <div class="container">
+  <h2>Wspaniała społeczność </h2>
+  <div>
+    <div>
+      <img src="./assets/wade-austin-ellis-FtuJIuBbUhI-unsplash.jpg" alt="">
+      <h2></h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed odit facere molestiae natus veniam neque nostrum sapiente similique pariatur inventore?</p>
+      <a href="#">profil</a>
+    </div>
+    <div>
+      <img src="./assets/samuel-girven-buJ6OB_q8hI-unsplash.jpg" alt="">
+      <h2></h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed odit facere molestiae natus veniam neque nostrum sapiente similique pariatur inventore?</p>
+      <a href="#">profil</a>
+    </div>
+    <div>
+      <img src="./assets/cynthia-smith-vDs0MCYkfQ4-unsplash.jpg" alt="">
+      <h2></h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed odit facere molestiae natus veniam neque nostrum sapiente similique pariatur inventore?</p>
+      <a href="#">profil</a>
+    </div>
+  </div>
+  <h3>najnowsi użytkownicy</h3>
 
   </div>
 </section>
 
 
-  <section class="container ">
-    <div class="row ">
-      <div class="col-xs-12 col-lg-6 ">
-        <div>
-          <p>mamy 123</p>
-          <h2>Psy</h2>
-          <button class="btn btn-primary">sprawdź</button>
-        </div>
 
-      </div>
-      <div class="col-xs-12 col-lg-6">
-        <div>
-          <p>mamy 123</p>
-          <h2>Koty</h2>
-          <button class="btn btn-primary">sprawdź</button>
-        </div>
-        <div> <img src="" alt=""></div>
-      </div>
-      <div class="col-xs-12">
-        <div>
-          <p>mamy 123</p>
-          <h2>inne zwierzątka</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, impedit!</p>
-          <button class="btn btn-primary">sprawdź</button>
-        </div>
-        <div>
-          <img src="" alt="">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <?php foreach ($animals as $animal): ?>
-
-    <div class="animal__card">
-      <img src="uploads/<?= $animal->image ?>" alt="" style="width:100px">
-      <p>
-        <?= $animal->name ?>
-      </p>
-      <p><a href="animal.php?id=<?= $animal->id ?>"> zobacz zwierzaka</a></p>
-    </div>
-
-
-  <?php endforeach ?>
-
-  <?php include('includes/components/paginator.php') ?>
 
 </main>
 

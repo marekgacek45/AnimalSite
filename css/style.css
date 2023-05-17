@@ -6,6 +6,7 @@
 
 body {
   background-color: #FFE15D;
+  line-height: 1.6;
   font-family: "Nunito Sans", sans-serif;
 }
 
@@ -46,11 +47,14 @@ body {
 }
 
 .header {
-  padding: 1em;
+  padding: 2em 1em;
   background-color: #FFE15D;
 }
 .header__text {
   text-align: center;
+}
+.header__photos {
+  margin: 2em 0;
 }
 .header__photos-box {
   width: 80px;
@@ -70,11 +74,11 @@ body {
   border-radius: 10px;
   box-shadow: 2px 2px 15px black;
 }
-.header__btns {
+.header__photos__btns {
   display: flex;
   justify-content: center;
 }
-.header__btns button {
+.header__photos__btns button {
   margin: 0 1em;
 }
 
@@ -97,5 +101,62 @@ body {
 }
 .heroImg__content {
   position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
   z-index: 10;
+}
+.heroImg__content-text {
+  z-index: 10;
+  color: white;
+}
+
+.animal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 992px) {
+  .animal-container {
+    flex-direction: row;
+  }
+}
+.animal__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 1em;
+  margin: 1em;
+  border-radius: 12px;
+  width: 90%;
+  height: 300px;
+}
+.animal__box-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+  height: 100%;
+}
+.animal__box-img {
+  height: 100%;
+  width: 50%;
+  max-width: 300px;
+  overflow: hidden;
+}
+.animal__box-img img {
+  width: 100%;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+section {
+  margin: 2em 0;
 }/*# sourceMappingURL=style.css.map */
