@@ -36,4 +36,4 @@ if (isset($_SESSION['username'])) {
 
 <body>
 
-   <?php include('navigation.php'); ?>
+   <?php include('components/navigation.php'); ?>

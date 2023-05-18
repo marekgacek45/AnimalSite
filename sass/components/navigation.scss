@@ -1,0 +1,33 @@
+@use '../utilities/mixins';
+@use '../utilities/colors';
+
+
+.navbar {
+	text-transform: uppercase;
+	&__container {
+		margin: 0 2em;
+	}
+}
+
+.nav-link{
+    color: colors.$font-light !important;
+	& :hover{
+		font-weight: bold;
+	}
+}
+
+
+
+
+.desktop {
+	display: none !important;
+	@include mixins.large-devices {
+		display: flex !important;
+	}
+}
+.mobile {
+	display: flex !important;
+	@include mixins.large-devices {
+		display: none !important;
+	}
+}

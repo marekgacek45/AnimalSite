@@ -106,6 +106,14 @@ class User
         public static function get_total($conn){
             return $conn->query("SELECT COUNT(*) FROM ". static::$db_table . "")->fetchColumn();
         }
+        public static function getAll($conn)
+        {
+    
+            $sql = "SELECT * FROM ". static::$db_table ." ORDER BY id DESC";
+    
+            $result = $conn->query($sql);
+            return $result->fetchAll(PDO::FETCH_CLASS, 'User');
+        }
     }
 
 

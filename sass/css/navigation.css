@@ -1,0 +1,31 @@
+.navbar {
+  text-transform: uppercase;
+}
+.navbar__container {
+  margin: 0 2em;
+}
+
+.nav-link {
+  color: white !important;
+}
+.nav-link :hover {
+  font-weight: bold;
+}
+
+.desktop {
+  display: none !important;
+}
+@media (min-width: 992px) {
+  .desktop {
+    display: flex !important;
+  }
+}
+
+.mobile {
+  display: flex !important;
+}
+@media (min-width: 992px) {
+  .mobile {
+    display: none !important;
+  }
+}/*# sourceMappingURL=navigation.css.map */

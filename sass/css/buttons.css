@@ -1,0 +1,17 @@
+.light-btn {
+  background-color: #E2A064;
+  font-weight: bold;
+  transition: all 0.6s;
+}
+.light-btn :hover {
+  background-color: #a27448;
+}
+
+.dark-btn {
+  background-color: #201C1B;
+  font-weight: bold;
+  transition: all 0.6s;
+}
+.dark-btn :hover {
+  background-color: #000000;
+}/*# sourceMappingURL=buttons.css.map */

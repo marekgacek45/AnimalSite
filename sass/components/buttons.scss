@@ -1,0 +1,18 @@
+@use '../utilities/colors';
+
+.light-btn {
+	background-color: colors.$btn-light;
+	font-weight: bold;
+    transition: all .6s;
+	& :hover {
+		background-color: colors.$btn-light-hover;
+	}
+}
+.dark-btn {
+	background-color: colors.$btn-dark;
+	font-weight: bold;
+    transition: all .6s;
+	& :hover {
+		background-color: colors.$btn-dark-hover;
+	}
+}
