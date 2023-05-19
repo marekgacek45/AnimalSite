@@ -14,10 +14,10 @@
                     <a class="nav-link" href="animals.php">Zwierzaki</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Kontakt</a>
+                    <a class="nav-link" href="users.php">Użytkownicy</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Galeria</a>
+                    <a class="nav-link" href="gallery.php">Galeria</a>
                 </li>
             </ul>
             <div class="d-flex order-lg-2 mobile">
@@ -25,12 +25,12 @@
                     <a href="user.php"><img src="uploads/<?= $user->image ?>" style="width:30px"></a>
 
                     <?php if (isset($user->admin) && $user->admin == 'yes'): ?>
-                        <a href="admin/index.php"><button class="btn light-btn">Panel admina</button></a>
+                        <a href="admin/index.php"><button class="btn btn-light">Panel admina</button></a>
                     <?php endif ?>
 
-                    <a href="logout.php"><button class="btn light-btn">Wyloguj</button></a>
+                    <a href="logout.php"><button class="btn btn-light">Wyloguj</button></a>
                 <?php else: ?>
-                    <a href="login.php"><button class="btn light-btn">Zaloguj</button></a>
+                    <a href="login.php"><button class="btn btn-light">Zaloguj</button></a>
                 <?php endif ?>
             </div>
         </div>
@@ -39,12 +39,12 @@
                     <a href="user.php"><img src="uploads/<?= $user->image ?>" style="width:30px"></a>
 
                     <?php if (isset($user->admin) && $user->admin == 'yes'): ?>
-                        <a href="admin/index.php"><button class="btn light-btn">Panel admina</button></a>
+                        <a href="admin/index.php"><button class="btn btn-light">Panel admina</button></a>
                     <?php endif ?>
 
-                    <a href="logout.php"><button class="btn light-btn">Wyloguj</button></a>
+                    <a href="logout.php"><button class="btn btn-light">Wyloguj</button></a>
                 <?php else: ?>
-                    <a href="login.php"><button class="btn light-btn">Zaloguj</button></a>
+                    <a href="login.php"><button class="btn btn-light">Zaloguj</button></a>
                 <?php endif ?>
         </div>
     </div>

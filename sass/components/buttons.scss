@@ -1,11 +1,15 @@
 @use '../utilities/colors';
 
 .light-btn {
+	padding: 1em 2em ;
+	border-radius:12px;
 	background-color: colors.$btn-light;
 	font-weight: bold;
     transition: all .6s;
+	text-transform: uppercase;
 	& :hover {
 		background-color: colors.$btn-light-hover;
+		color: red;
 	}
 }
 .dark-btn {

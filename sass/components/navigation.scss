@@ -10,7 +10,8 @@
 }
 
 .nav-link{
-    color: colors.$font-light !important;
+    color: red;
+	text-align: center;
 	& :hover{
 		font-weight: bold;
 	}

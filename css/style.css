@@ -31,12 +31,16 @@
 }
 
 .light-btn {
+  padding: 1em 2em;
+  border-radius: 12px;
   background-color: #E2A064;
   font-weight: bold;
   transition: all 0.6s;
+  text-transform: uppercase;
 }
 .light-btn :hover {
   background-color: #a27448;
+  color: red;
 }
 
 .dark-btn {
@@ -46,54 +50,6 @@
 }
 .dark-btn :hover {
   background-color: #000000;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-color: #E2A064;
-  line-height: 1.6;
-  font-family: "Nunito Sans", sans-serif;
-}
-
-.header {
-  padding: 2em 1em;
-  background-color: #E2A064;
-}
-.header__text {
-  text-align: center;
-}
-.header__photos {
-  margin: 2em 0;
-}
-.header__photos-box {
-  width: 80px;
-  height: 80px;
-  margin: 1em;
-}
-@media (min-width: 576px) {
-  .header__photos-box {
-    width: 120px;
-    height: 120px;
-  }
-}
-.header__photos-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 2px 2px 15px black;
-}
-.header__photos__btns {
-  display: flex;
-  justify-content: space-evenly;
-}
-.header__photos__btns a {
-  margin: 0 2em;
 }
 
 .heroImg {
@@ -131,9 +87,64 @@ body {
   color: white;
 }
 
+.footer {
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: linear-gradient(to right, #E2A064 0%, #f9d423 100%);
+  line-height: 1.6;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.section {
+  padding: 2em 1em;
+  color: black;
+  text-align: center;
+  margin: 2em 0;
+}
+
 .heading {
   font-family: "Josefin Sans", sans-serif;
   text-transform: uppercase;
+}
+
+.header__text {
+  text-align: center;
+}
+.header__photos {
+  margin: 2em 0;
+}
+.header__photos-box {
+  width: 80px;
+  height: 80px;
+  margin: 1em;
+}
+@media (min-width: 576px) {
+  .header__photos-box {
+    width: 120px;
+    height: 120px;
+  }
+}
+.header__photos-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 2px 2px 15px black;
+}
+.header__photos__btns {
+  display: flex;
+  justify-content: space-evenly;
+}
+.header__photos__btns a {
+  margin: 0 2em;
 }
 
 .puppy {
@@ -187,13 +198,6 @@ body {
   overflow: hidden;
 }
 
-section {
-  margin: 2em 0;
-}
-
-.community {
-  text-align: center;
-}
 .community__container {
   text-align: center;
   display: flex;
@@ -201,19 +205,20 @@ section {
   align-items: center;
   flex-direction: column;
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .community__container {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 .community__box {
   padding: 1em;
-  border: 1px solid red;
   flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: #201C1B;
+  color: white;
   padding: 1em;
   margin: 1em;
   border-radius: 12px;
@@ -221,19 +226,36 @@ section {
 }
 @media (min-width: 768px) {
   .community__box {
-    height: 600px;
+    height: 700px;
     justify-content: space-evenly;
+    width: 45%;
+  }
+}
+@media (min-width: 992px) {
+  .community__box {
+    width: 30%;
   }
 }
 .community__box-img {
   width: 100%;
-  height: 50%;
+  height: 40%;
   margin-bottom: 1em;
 }
 .community__box img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+.community__box h3 {
+  color: #E2A064;
+}
+.community__user-card {
+  margin: 1em;
+  padding: 1em;
+}
+.community__user-card img {
+  width: 50px;
+  margin-bottom: 1em;
 }
 
 .animal__card {

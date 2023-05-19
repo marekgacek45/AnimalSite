@@ -1,5 +1,5 @@
-<footer>
-    projekt wykonał górska strona
+<footer class="footer">
+    <p>&copy<span class="footer__year"></span> Górska Strona</p>
 </footer>
 
 

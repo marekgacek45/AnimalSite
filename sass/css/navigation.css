@@ -6,7 +6,8 @@
 }
 
 .nav-link {
-  color: white !important;
+  color: red;
+  text-align: center;
 }
 .nav-link :hover {
   font-weight: bold;

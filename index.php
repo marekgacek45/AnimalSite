@@ -18,7 +18,7 @@ $base = strtok($_SERVER['REQUEST_URI'], "?")
   $i = 1;
   ?>
 
-  <header class="header">
+  <header class="header section">
     <div class="container">
       <div class="row d-flex justify-content-center align-items-center">
         <div class="header__text d-flex flex-column justify-content-center col-xs-12  col-lg-5">
@@ -53,7 +53,7 @@ $base = strtok($_SERVER['REQUEST_URI'], "?")
  <?php include("includes/components/heroImg.php") ?>
 
 
-  <section class="puppy">
+  <section class="puppy section">
     <div class="container">
   <h2 class="heading">Pomóż naszym przyjaciołom znaleźć swój nowy dom</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quod impedit repellendus harum atque
@@ -64,9 +64,9 @@ $base = strtok($_SERVER['REQUEST_URI'], "?")
         <div class="puppy__box">
           <div class="puppy__box-text">
             <p>mamy 123</p>
-            <h2 class="puppy__box-text-heading">pieski</h2>
+            <h2 class="puppy__box-text-heading heading">pieski</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, impedit!</p>
-            <button class="btn light-btn">sprawdź</button>
+            <button class="btn btn-light">sprawdź</button>
           </div>
           <div class=" puppy__box-img">
             <img src="./assets/alvan-nee-brFsZ7qszSY-unsplash-removebg-preview.png" alt="">
@@ -75,9 +75,9 @@ $base = strtok($_SERVER['REQUEST_URI'], "?")
         <div class="puppy__box">
           <div class="puppy__box-text">
             <p>mamy 123</p>
-            <h2 class="puppy__box-text-heading">koty</h2>
+            <h2 class="puppy__box-text-heading heading">koty</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, impedit!</p>
-            <button class="btn light-btn">sprawdź</button>
+            <button class="btn btn-light">sprawdź</button>
           </div>
           <div class=" puppy__box-img">
             <img src="./assets/jae-park-7GX5aICb5i4-unsplash-removebg-preview.png" alt="">
@@ -88,9 +88,9 @@ $base = strtok($_SERVER['REQUEST_URI'], "?")
       <div class=" puppy__box ">
         <div class="puppy__box-text">
           <p>mamy 123</p>
-          <h2 class="puppy__box-text-heading">inne zwierzątka</h2>
+          <h2 class="puppy__box-text-heading heading">inne zwierzątka</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, impedit!</p>
-          <button class="btn light-btn">sprawdź</button>
+          <button class="btn btn-light">sprawdź</button>
         </div>
         <div class=" puppy__box-img">
           <img src="./assets/birger-strahl-fOV7nWWIwRk-unsplash-removebg-preview.png" alt="">
@@ -102,46 +102,53 @@ $base = strtok($_SERVER['REQUEST_URI'], "?")
 
   <?php include("includes/components/heroImg.php") ?>
 
-    <section>
+    <section class="community section">
       <div class="container community">
-        <h2>Wspaniała społeczność </h2>
+        <h2 class="heading">Wspaniała społeczność </h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error corporis omnis culpa, mollitia aperiam dignissimos. Possimus quasi molestias aliquam aspernatur eos illo voluptates tenetur deleniti doloremque inventore culpa eligendi autem modi, numquam rem! Asperiores ab sint ullam ipsa nostrum iste.Possimus quasi molestias aliquam aspernatur eos illo voluptates tenetur deleniti doloremque inventore culpa eligendi autem modi, numquam rem! Asperiores ab sint ullam ipsa nostrum iste.</p>
         <div class="community__container">
           <div class="community__box">
             <div class="community__box-img">
-              <img src="./assets/wade-austin-ellis-FtuJIuBbUhI-unsplash.jpg" alt="">
+              <img src="./assets/wade-austin-ellis-FtuJIuBbUhI-unsplash.jpg" alt="" loading="lazy">
             </div>
-            <h2>Paweł z Radomia</h2>
+            <h3 class="heading">Paweł z Radomia</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed odit facere molestiae natus veniam neque
-              nostrum sapiente similique pariatur inventore?</p>
-            <a href="#">profil</a>
+              nostrum sapiente similique pariatur inventore?Possimus quasi molestias aliquam aspernatur eos illo voluptates tenetur deleniti doloremque inventore culpa eligendi autem modi, numquam rem! Asperiores ab sint ullam ipsa nostrum iste.</p>
+              <a href="#"><button class="btn btn-light">zobacz</button></a>
           </div>
           <div class="community__box">
             <div class="community__box-img">
-              <img src="./assets/samuel-girven-buJ6OB_q8hI-unsplash.jpg" alt="">
+              <img src="./assets/samuel-girven-buJ6OB_q8hI-unsplash.jpg" alt="" loading="lazy">
             </div>
-            <h2>Wanda z Płocka</h2>
+            <h3 class="heading">Wanda z Płocka</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed odit facere molestiae natus veniam neque
+              nostrum sapiente similique pariatur inventore?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed odit facere molestiae natus veniam neque
               nostrum sapiente similique pariatur inventore?</p>
-            <a href="#">profil</a>
+              <a href="#"><button class="btn btn-light">zobacz</button></a>
           </div>
           <div class="community__box">
             <div class="community__box-img">
-              <img src="./assets/cynthia-smith-vDs0MCYkfQ4-unsplash.jpg" alt="">
+              <img src="./assets/cynthia-smith-vDs0MCYkfQ4-unsplash.jpg" alt="" loading="lazy">
             </div>
-            <h2>Jurek z Koszalina</h2>
+            <h3 class="heading">Jurek z Koszalina</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed odit facere molestiae natus veniam neque
+              nostrum sapiente similique pariatur inventore?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed odit facere molestiae natus veniam neque
               nostrum sapiente similique pariatur inventore?</p>
-            <a href="#">profil</a>
+            <a href="#"><button class="btn btn-light">zobacz</button></a>
           </div>
         </div>
-        <h3>najnowsi użytkownicy</h3>
+        <div class="community__newest section">
+
+      
+        <h2 class="heading">najnowsi użytkownicy</h2>
         <div class="community__container">
           <?php foreach ($users as $user): ?>
-            <div>
-              <h2><?= $user->username ?></h2>
-              <img src="uploads/<?= $user->image ?>" alt="" style="width:50px">
+            <div class="community__user-card">
+              <img src="uploads/<?= $user->image ?>" alt="">
+              <h4><?= $user->username ?></h4>
             </div>
           <?php endforeach ?>
+        </div>
         </div>
       </div>
     </section>
@@ -156,4 +163,4 @@ $base = strtok($_SERVER['REQUEST_URI'], "?")
 
 
 
-<?php require("includes/footer.php") ?>
+<?php require("includes/components/footer.php") ?>
